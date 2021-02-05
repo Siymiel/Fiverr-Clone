@@ -1,0 +1,438 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Style -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="splidejs/dist/css/themes/splide-default.min.css" rel="stylesheet">
+   <!-- Require css -->
+   <style>
+    .scroll-hidden::-webkit-scrollbar {
+        height: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
+    </style>
+
+    <!-- Script -->
+    <script src="splidejs/dist/js/splide.min.js"></script>
+</head>
+<body>
+  <header class="w-full h-96" style="background-color: gray;">
+  
+      <nav class="bg-white shadow">
+          <div class="max-w-7xl mx-auto px-6 py-3">
+              <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                  <div class="flex justify-between items-center">
+                      <div class="flex items-center">
+                          <a class="text-gray-800 text-xl font-bold md:text-3xl hover:text-gray-700" href="#">fiverr<span class="text-3xl text-green-400">.</span></a>
+  
+                          <!-- Search input on desktop screen -->
+                          <div class="mx-10 hidden md:block">
+                              <div class="relative">
+                                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                                      <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                          <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                      </svg>
+                                  </span>
+                                  <div class="flex">
+                                    <input type="text" class="pl-10 pr-4 py-1 w-full bg-white text-gray-700 border border-gray-300 focus:outline-none focus:ring" placeholder="Find Services">
+                                    <button class="bg-green-500 text-white font-bold text-sm py-1 px-3">Search</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+  
+                      <!-- Mobile menu button -->
+                      <div class="flex md:hidden">
+                          <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                              <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                                  <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                              </svg>
+                          </button>
+                      </div>
+                  </div>
+  
+                  <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                  <div class="md:flex items-center">
+                      <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1 font-bold">
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Fiverr Business</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Explore</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">English</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">$USD</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Become a Seller</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Sign In</a>
+                        </div>
+                        
+                      <div class="flex items-center py-2 -mx-1 md:mx-0">
+                          <a class="block w-1/2 px-3 py-1 mx-1 rounded text-center text-sm border-2 border-green-400 font-bold text-green-400 leading-5 md:mx-0 md:w-auto" href="#">Join</a>
+                      </div>
+  
+                      <!-- Search input on mobile screen -->
+                      <div class="mt-3 md:hidden">
+                          <div class="relative">
+                              <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                                  <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                      <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                      </path>
+                                  </svg>
+                              </span>
+  
+                              <input type="text" class="pl-10 pr-4 py-2 w-full bg-white text-gray-700 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" placeholder="Find Services">
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="border-t-2 border-b-2 border-gray-300 mt-4 pb-4 hidden">
+                <div class="mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden">
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Graphic & Design</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Digital Marketing</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Writing & Translation</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Video & Animation</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Music & Audio</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Programming & Tech</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Business</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Lifestyle</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Industries</a>
+                </div>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+  <!-- Trusted By -->
+  <section class="bg-gray-100 py-5">
+    <ul>
+      <p>Trusted by:</p>
+      <li></li>
+    </ul>
+  </section>
+
+  <!-- Featured -->
+  <section class="mb-10">
+    <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+      <p class="text-3xl text-gray-700 font-bold">Popular professional services</p>
+    </div>
+    <div class="splide max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-6">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <div>
+              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1612429971410-e72083471235?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8aVVJc25WdGpCMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Build your branch</p>
+                <h1 class="text-2xl font-bold relative text-white">Logo Design</h1>
+              </div>
+              </div>
+            </div>
+          </li> 
+          <li class="splide__slide">
+            <div>
+              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1612477691321-967456bc1c30?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Sjl5clBhSFhSUVl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+                <div class="py-4 pl-4">
+                  <p class="text-white font-semibold relative text-sm">Customize your site</p>
+                  <h1 class="text-2xl font-bold relative text-white">WordPress</h1>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div>
+              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1567596388756-f6d710c8fc07?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bWljcm9waG9uZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+                <div class="py-4 pl-4">
+                  <p class="text-white font-semibold relative text-sm">Share your message</p>
+                  <h1 class="text-2xl font-bold relative text-white">Voice Over</h1>
+                </div>
+              </div>
+            </div>
+          </li> 
+          <li class="splide__slide">
+            <div>
+              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1552168324-d612d77725e3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fGNhbWVyYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+                <div class="py-4 pl-4">
+                  <p class="text-white font-semibold relative text-sm">Engage your audience</p>
+                  <h1 class="text-2xl font-bold relative text-white">Video Explainer</h1>
+                </div>
+              </div>
+            </div>
+          </li> 
+          <li class="splide__slide">
+            <div>
+              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDk3fEo5eXJQYUhYUlFZfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Reach more customers</p>
+                <h1 class="text-2xl font-bold relative text-white">Social Media</h1>
+              </div>
+              </div>
+            </div>
+          </li> 
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Freelance Talent -->
+  <section class="w-full bg-green-50">
+    <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20">
+      <div class="grid grid-cols-2 gap-20 py-20">
+
+        <div class="max-w-sm">
+          <h2 class="text-3xl text-gray-700 font-bold">A whole world of freelance talent at your fingertips</h2>
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-5 w-5 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-700 font-bold">The best for every budget</h4>
+          </div>
+          <p class="text-base font-medium text-gray-500">Find high-quality services at every price point. No hourly rates, just project-based pricing.</p>
+  
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-5 w-5 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-700 font-bold">Quality work done quickly</h4>
+          </div>
+          <p class="text-base font-medium text-gray-500">Find the right freelancer to begin working on your project within minutes.</p>
+  
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-5 w-5 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-700 font-bold">Protected payments, every time</h4>
+          </div>
+          <p class="text-base font-medium text-gray-500">Always know what you'll pay upfront. Your payment isn't released until you approve the work.</p>
+  
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-5 w-5 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-700 font-bold">24/7 support</h4>
+          </div>
+          <p class="text-base font-medium text-gray-500">Questions? Our round-the-clock support team is available to help anytime, anywhere.</p>
+  
+        </div>
+        <div class="max-w-lg mr-28">
+          <iframe class="rounded-md mt-20 mr-20" width="538" height="340" src="https://www.youtube.com/embed/hNQFjqDvPhA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Marketplace -->
+  <section>
+    <div>
+      <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+        <h4 class="text-3xl text-gray-700 font-bold">Explore the marketplace</h4>
+      </div>
+
+      <article class="grid grid-cols-4 gap-10 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13 10a2 2 0 104 0V5a2 2 0 10-4 0v5zM5 8a2 2 0 100 4h5a2 2 0 100-4H5zm10 5a2 2 0 100 4h5a2 2 0 100-4h-5zm-5 9a2 2 0 01-2-2v-5a2 2 0 114 0v5a2 2 0 01-2 2zM8 5a2 2 0 114 0v2h-2a2 2 0 01-2-2zM3 15a2 2 0 104 0v-2H5a2 2 0 00-2 2zm14 5a2 2 0 11-4 0v-2h2a2 2 0 012 2zm5-10a2 2 0 10-4 0v2h2a2 2 0 002-2z"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Graphics & Design</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V6zm2 0h14v8H5V6z" fill="currentColor"/>
+                <path d="M2 18a1 1 0 100 2h20a1 1 0 100-2H2z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Digital Marketing</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 19a3 3 0 003 3h14a3 3 0 003-3V5a3 3 0 00-3-3H5a3 3 0 00-3 3v14zm18 0a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1h5v8.011h2.395L14 9.864l1.605 2.147H18V4h1a1 1 0 011 1v14zM16 4h-4v5.336l2-2.676 2 2.676V4z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Writing & Translation</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24"  fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 2c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11z" fill="currentColor"/>
+                <path d="M16 12l-6 4.33V7.67L16 12z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Video & Animation</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4a3 3 0 116 0v8a3 3 0 11-6 0V4zm4 0v8a1 1 0 11-2 0V4a1 1 0 112 0z" fill="currentColor"/>
+                <path d="M18 12a6.002 6.002 0 01-5 5.917V21h4v2H7v-2h4v-3.083A6.002 6.002 0 016 12V9h2v3a4 4 0 008 0V9h2v3z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Music & Audio</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.325 3.05L8.667 20.432l1.932.518 4.658-17.382-1.932-.518zM7.612 18.36l1.36-1.448-.001-.019-5.094-4.78 4.79-5.105-1.458-1.369-6.16 6.563 6.563 6.159zM16.388 18.36l-1.36-1.448.001-.019 5.094-4.78-4.79-5.105 1.458-1.369 6.16 6.563-6.563 6.159z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Programming & Tech</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.5h3a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2v-12a2 2 0 012-2h3a3 3 0 013-3h4a3 3 0 013 3zm-3-1h-4a1 1 0 00-1 1h6a1 1 0 00-1-1zm6 3H4v2h16v-2zm-16 12v-8h3v2h4v-2h2v2h4v-2h3v8H4z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Business</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 2.5a1 1 0 00-1 1v2a1 1 0 002 0v-2a1 1 0 00-1-1z" fill="currentColor"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13 21.5a6.002 6.002 0 005.917-5H19a4 4 0 000-8v-1H1v8a6 6 0 006 6h6zM3 9.5v6a4 4 0 004 4h6a4 4 0 004-4v-6H3zm18 3a2 2 0 01-2 2v-4a2 2 0 012 2z" fill="currentColor"/>
+                <path d="M9 3.5a1 1 0 112 0v2a1 1 0 11-2 0v-2zM14 2.5a1 1 0 00-1 1v2a1 1 0 102 0v-2a1 1 0 00-1-1z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Lifestyle</p>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Business Solution -->
+  <section class="w-full" style="background-color:#164E63;">
+    <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20">
+      <div class="grid grid-cols-2 gap-20 py-20">
+
+        <div class="max-w-sm">
+          <h2 class="text-2xl text-gray-300 font-bold">fiverr business</h2>
+          
+          <div class="flex items-center space-x-2 mt-5">
+            <h4 class="text-3xl text-gray-300 font-bold">A business solution designed for <span class="italic">teams</span></h4>
+          </div>
+         
+          
+          <div class="flex items-center space-x-2 mt-5">
+            <h4 class="text-lg text-gray-300 font-bold">Upgrade to a curated experience packed with tools and benefits, dedicated to businesses</h4>
+          </div>
+  
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-8 w-8 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-300 font-medium">Connect to freelancers with proven business experience</h4>
+          </div>
+        
+          <div class="flex items-center space-x-2 mt-2">
+            <svg class="h-8 w-8 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-300 font-medium">Get matched with the perfect talent by a customer success manager</h4>
+          </div>
+          
+          <div class="flex items-center space-x-2 mt-2">
+            <svg class="h-8 w-8 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-300 font-medium">Manage teamwork and boost productivity with one powerful workspace</h4>
+          </div>
+          
+  
+        </div>
+        <div class="max-w-lg">
+          <img class="w-full object-cover" src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80">
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section>
+    <div class="splide1">
+      <div class="splide1__track">
+        <ul class="splide1__list">
+          <li class="splide1__slide">Slide 01</li>
+          <li class="splide1__slide">Slide 02</li>
+          <li class="splide1__slide">Slide 03</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+
+
+<div class="mt-96"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Scripts -->
+  <script defer>
+    document.addEventListener( 'DOMContentLoaded', function () {
+        var options = {
+            autoplay: true,
+            type: 'loop',
+            perPage: 5,
+            gap: 36,
+            interval: 6000,
+            easing: 'cubic-bezier(.42,.65,.27,.99)',
+        };
+        new Splide( '.splide', options ).mount();
+    } );
+</script>
+<!-- splide1 -->
+<script defer>
+  document.addEventListener( 'DOMContentLoaded', function () {
+      var options = {
+          autoplay: true,
+          type: 'loop',
+          perPage: 1,
+          interval: 6000,
+          easing: 'cubic-bezier(.42,.65,.27,.99)',
+      };
+      new Splide( '.splide1', options ).mount();
+  } );
+</script>
+</body>
+</html>
