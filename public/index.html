@@ -377,16 +377,34 @@
   </section>
 
   <!-- Testimonial -->
-  <section>
-    <div class="splide1">
-      <div class="splide1__track">
-        <ul class="splide1__list">
-          <li class="splide1__slide">Slide 01</li>
-          <li class="splide1__slide">Slide 02</li>
-          <li class="splide1__slide">Slide 03</li>
-        </ul>
+  <section class="mt-28 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+    <article class="grid grid-cols-2 gap-4 items-center">
+      <div>
+        <iframe class="rounded-md" width="480" height="250" src="https://www.youtube.com/embed/HccqokXN2n8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
-    </div>
+      <div>
+        <h2 class="text-xl text-gray-500">Brighid Gannon (DNP, PMHNP-BC), CO-Founder | Lavender</h2>
+        <p class="italic text-2xl text-green-800 mt-5 leading-snug">"We use Fiverr for SEO, our logo, website, copy, animated videos - literally everything. It was like working with a human right next you versus being across the world"</p>
+      </div>
+    </article>
+  </section>
+
+  <!-- Incredible Logo -->
+  <section class="mt-20 bg-blue-500 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+    <article class="grid grid-cols-2 p-3">
+      <div class="max-w-sm ml-14">
+        <h2 class="text-2xl text-white font-bold">fiverr <span class="font-normal">logo maker.</span></h2>
+        <div class="flex items-center space-x-2 mt-5">
+          <h4 class="text-3xl text-white font-bold">Make an incredible logo <span class="italic">in minutes</span></h4>
+        </div>
+        <p class="text-base font-semibold text-white mt-5">Pre-designed by top talent. Just add your touch.</p>
+        <button class="bg-gray-100 text-blue-500 font-semibold px-5 py-2 mt-5 rounded-md">Try Fiverr Logo Maker</button>
+      </div>
+
+      <div>
+        <img class="object-cover h-64 rounded-md" src="https://images.unsplash.com/photo-1599843533756-8d3aac8ff16b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80">
+      </div>
+    </article>
   </section>
 
 
@@ -420,19 +438,6 @@
         };
         new Splide( '.splide', options ).mount();
     } );
-</script>
-<!-- splide1 -->
-<script defer>
-  document.addEventListener( 'DOMContentLoaded', function () {
-      var options = {
-          autoplay: true,
-          type: 'loop',
-          perPage: 1,
-          interval: 6000,
-          easing: 'cubic-bezier(.42,.65,.27,.99)',
-      };
-      new Splide( '.splide1', options ).mount();
-  } );
 </script>
 </body>
 </html>
