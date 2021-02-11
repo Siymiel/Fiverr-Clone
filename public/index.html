@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiverr - Freelance Services Marketing</title>
   <!-- Style -->
   <link href="css/style.css" rel="stylesheet">
   <link href="splidejs/dist/css/themes/splide-default.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
    <!-- Require css -->
    <style>
     .scroll-hidden::-webkit-scrollbar {
@@ -16,74 +18,94 @@
 
     <!-- Script -->
     <script src="splidejs/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
 </head>
-<body>
-  <header class="w-full h-96" style="background-color: gray;">
+<body x-data="{open: false}">
+  <!-- Header -->
+  <header class="w-full">
   
-      <nav class="bg-white shadow">
+      <nav class="shadow w-full mx-auto">
           <div class="max-w-7xl mx-auto px-6 py-3">
               <div class="flex flex-col md:flex-row md:justify-between md:items-center">
-                  <div class="flex justify-between items-center">
+                  <div class="md:flex justify-between items-center hidden">
+                      <!-- LOGO & SEARCH INPUT ON DESKTOP -->
                       <div class="flex items-center">
-                          <a class="text-gray-800 text-xl font-bold md:text-3xl hover:text-gray-700" href="#">fiverr<span class="text-3xl text-green-400">.</span></a>
+                         <!-- DESKTOP LOGO -->
+                          <a class="text-gray-800 text-xl font-bold md:text-3xl hover:text-gray-700 hidden md:flex" href="#">fiverr<span class="text-3xl text-green-400">.</span></a>
   
-                          <!-- Search input on desktop screen -->
+                          <!-- SEARCH INPUT ON DESKTOP -->
                           <div class="mx-10 hidden md:block">
                               <div class="relative">
                                   <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                                      <!-- search icon -->
                                       <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
-                                          <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                                          <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                          </path>
                                       </svg>
                                   </span>
+                                  <!-- search input -->
                                   <div class="flex">
                                     <input type="text" class="pl-10 pr-4 py-1 w-full bg-white text-gray-700 border border-gray-300 focus:outline-none focus:ring" placeholder="Find Services">
                                     <button class="bg-green-500 text-white font-bold text-sm py-1 px-3">Search</button>
                                   </div>
                               </div>
                           </div>
+                          <!-- END OF SEARCH INPUT ON DESKTOP -->
                       </div>
-  
-                      <!-- Mobile menu button -->
-                      <div class="flex md:hidden">
-                          <button type="button" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
-                              <svg viewBox="0 0 24 24" class="h-6 w-6 fill-current">
+                  </div>
+
+                  <!-- MOBILE HEADER -->
+                  <div class="md:hidden">
+                    <div class="flex justify-between items-center">
+                       <!-- MOBILE MENU BUTTON - HAMBURGER -->
+                      <div>
+                          <button type="button" @click="open = true" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                              <!-- hamburger icon -->
+                              <svg viewBox="0 0 24 24" class="h-7 w-7 fill-current">
                                   <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
                               </svg>
                           </button>
                       </div>
-                  </div>
+                       <!-- MOBILE LOGO -->
+                       <div>
+                        <a class="text-gray-800 text-3xl font-bold hover:text-gray-700 md:hidden" href="#">fiverr<span class="text-3xl text-green-400">.</span></a>
+                       </div>
+
+                      <div>
+                        <p class="text-base text-gray-500 font-bold">Join</p>
+                      </div>
+                    </div>
+                </div>
+                  <!-- END OF MOBILE HEADER -->
   
-                  <!-- Mobile Menu open: "block", Menu closed: "hidden" -->
+                  <!-- MOBILE MENU OPEN: "BLOCK", MENU CLOSED: "HIDDEN" -->
                   <div class="md:flex items-center">
-                      <div class="flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1 font-bold">
+                      <div class="hidden md:flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1 font-bold">
                           <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Fiverr Business</a>
                           <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Explore</a>
                           <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">English</a>
                           <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">$USD</a>
                           <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Become a Seller</a>
                           <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Sign In</a>
-                        </div>
-                        
-                      <div class="flex items-center py-2 -mx-1 md:mx-0">
-                          <a class="block w-1/2 px-3 py-1 mx-1 rounded text-center text-sm border-2 border-green-400 font-bold text-green-400 leading-5 md:mx-0 md:w-auto" href="#">Join</a>
                       </div>
-  
-                      <!-- Search input on mobile screen -->
-                      <div class="mt-3 md:hidden">
-                          <div class="relative">
-                              <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
-                                  <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
-                                      <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                      </path>
-                                  </svg>
-                              </span>
-  
-                              <input type="text" class="pl-10 pr-4 py-2 w-full bg-white text-gray-700 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" placeholder="Find Services">
-                          </div>
-                      </div>
+
+                      <ul class="md:hidden mt-2 font-bold" x-show="open" @click.away="open = false">
+                        <li><a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Fiverr Business</a></li>
+                        <li><a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Explore</a></li>
+                        <li><a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">English</a></li>
+                        <li><a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">$USD</a></li>
+                        <li><a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Become a Seller</a></li>
+                        <li><a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Sign In</a></li>
+                      </ul>
+                  
+
+                    <div class="hidden md:flex items-center py-2 -mx-1 md:mx-0">
+                        <a class="block w-1/2 px-3 py-1 mx-1 rounded text-center text-sm border-2 border-green-400 font-bold text-green-400 leading-5 md:mx-0 md:w-auto" href="#">Join</a>
+                    </div>
                   </div>
               </div>
               
+              <!-- SUB-MENU -->
               <div class="border-t-2 border-b-2 border-gray-300 mt-4 pb-4 hidden">
                 <div class="mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden">
                     <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Graphic & Design</a>
@@ -101,6 +123,66 @@
       </nav>
   </header>
 
+  <!-- Hero Section -->
+  <section>
+    <div class="w-full bg-cover bg-center relative bg-fixed hidden md:block" style="height:80vh; background-image: url('https://images.unsplash.com/photo-1520624598504-ed830bd895d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');">
+      <div class="absolute">  
+        <div class="flex ml-20 mt-32">
+          <div>
+            <p class="text-5xl font-semibold text-gray-100 leading-tight">Find the perfect <span class="italic font-normal">freelance</span></p>
+            <p class="text-5xl font-semibold text-gray-100">services for your business</p>
+  
+             <!-- Search input on desktop screen -->
+             <div class="mt-8 max-w-2xl">
+              <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                      <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                          <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                  </span>
+                  <div class="flex">
+                    <input type="text" class="pl-10 pr-4 py-2 rounded-tl-md rounded-bl-md w-full bg-white text-gray-700 border border-gray-300 focus:outline-none focus:ring" placeholder="Try 'building mobile app'">
+                    <button class="bg-green-500 text-white font-bold text-base py-1 px-4 rounded-tr-md rounded-br-md">Search</button>
+                  </div>
+              </div>
+
+            </div>
+            <div class="flex items-center mt-5">
+              <p class="font-semibold text-sm mr-4 text-gray-100">Popular:</p>
+              <ul class="flex space-x-3 font-semibold text-gray-100">
+                <li class="border-2 border-white rounded-3xl text-sm px-3">Web and Mobile Design</li>
+                <li class="border-2 border-white rounded-3xl text-sm px-3">Wordpress</li>
+                <li class="border-2 border-white rounded-3xl text-sm px-3">Logo Design</li>
+                <li class="border-2 border-white rounded-3xl text-sm px-3">Dropshipping</li>
+              </ul>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full bg-cover bg-center md:hidden" style="height:50vh; background-image: url('https://images.unsplash.com/photo-1520624598504-ed830bd895d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');">
+      <div class="max-w-md mx-auto py-10">
+        <div class="mb-8">
+          <p class="text-white text-3xl font-bold">Find the perfect <span class="italic font-medium">freelance</span></p>
+          <p class="text-white text-3xl font-bold">services for your business</p>
+        </div>
+        <!-- Search input on mobile screen -->
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    </path>
+                </svg>
+            </span>
+
+            <input type="text" class="pl-10 pr-4 py-2 w-full bg-white text-gray-700 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" placeholder="Try 'building mobile app'">
+        </div>
+        <button class="bg-green-400 w-full rounded-md py-2 text-white font-bold mt-3">Search</button>
+      </div>
+      </div>
+  </section>
+
   <!-- Trusted By -->
   <section class="bg-gray-100 py-5">
     <ul>
@@ -111,7 +193,7 @@
 
   <!-- Featured -->
   <section class="mb-10">
-    <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+    <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-7xl mx-auto mt-12">
       <p class="text-3xl text-gray-700 font-bold">Popular professional services</p>
     </div>
     <div class="splide max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-6">
@@ -119,7 +201,7 @@
         <ul class="splide__list">
           <li class="splide__slide">
             <div>
-              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1612429971410-e72083471235?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8aVVJc25WdGpCMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1612429971410-e72083471235?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8aVVJc25WdGpCMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
               <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
               <div class="py-4 pl-4">
                 <p class="text-white font-semibold relative text-sm">Build your branch</p>
@@ -130,7 +212,7 @@
           </li> 
           <li class="splide__slide">
             <div>
-              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1612477691321-967456bc1c30?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Sjl5clBhSFhSUVl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1612477691321-967456bc1c30?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Sjl5clBhSFhSUVl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
                 <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
                 <div class="py-4 pl-4">
                   <p class="text-white font-semibold relative text-sm">Customize your site</p>
@@ -141,7 +223,7 @@
           </li>
           <li class="splide__slide">
             <div>
-              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1567596388756-f6d710c8fc07?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bWljcm9waG9uZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1567596388756-f6d710c8fc07?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bWljcm9waG9uZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
                 <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
                 <div class="py-4 pl-4">
                   <p class="text-white font-semibold relative text-sm">Share your message</p>
@@ -152,7 +234,7 @@
           </li> 
           <li class="splide__slide">
             <div>
-              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1552168324-d612d77725e3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fGNhbWVyYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1552168324-d612d77725e3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fGNhbWVyYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
                 <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
                 <div class="py-4 pl-4">
                   <p class="text-white font-semibold relative text-sm">Engage your audience</p>
@@ -163,7 +245,7 @@
           </li> 
           <li class="splide__slide">
             <div>
-              <div class="w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDk3fEo5eXJQYUhYUlFZfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDk3fEo5eXJQYUhYUlFZfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
               <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
               <div class="py-4 pl-4">
                 <p class="text-white font-semibold relative text-sm">Reach more customers</p>
@@ -176,11 +258,11 @@
       </div>
     </div>
   </section>
-
+ 
   <!-- Freelance Talent -->
   <section class="w-full bg-green-50">
-    <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20">
-      <div class="grid grid-cols-2 gap-20 py-20">
+    <div class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-20 py-20">
 
         <div class="max-w-sm">
           <h2 class="text-3xl text-gray-700 font-bold">A whole world of freelance talent at your fingertips</h2>
@@ -218,7 +300,10 @@
   
         </div>
         <div class="max-w-lg mr-28">
-          <iframe class="rounded-md mt-20 mr-20" width="538" height="340" src="https://www.youtube.com/embed/hNQFjqDvPhA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/6stlCkUDG_s" href="javascript:;" class="relative">
+            <iframe class="rounded-md mt-20 mr-20" width="560" height="315" src="https://www.youtube.com/embed/6stlCkUDG_s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="absolute inset-0 cursor-pointer" data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/6stlCkUDG_s"></div>
+          </a>
         </div>
     </div>
     </div>
@@ -227,11 +312,11 @@
   <!-- Marketplace -->
   <section>
     <div>
-      <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+      <div class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
         <h4 class="text-3xl text-gray-700 font-bold">Explore the marketplace</h4>
       </div>
 
-      <article class="grid grid-cols-4 gap-10 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+      <article class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
         <div>
           <div class="flex justify-center">
             <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
@@ -331,36 +416,36 @@
 
   <!-- Business Solution -->
   <section class="w-full" style="background-color:#164E63;">
-    <div class="max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20">
-      <div class="grid grid-cols-2 gap-20 py-20">
+    <div class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-20 py-20">
 
-        <div class="max-w-sm">
+        <div class="max-w-md mx-auto">
           <h2 class="text-2xl text-gray-300 font-bold">fiverr business</h2>
           
-          <div class="flex items-center space-x-2 mt-5">
+          <div class="flex space-x-2 mt-5">
             <h4 class="text-3xl text-gray-300 font-bold">A business solution designed for <span class="italic">teams</span></h4>
           </div>
          
           
-          <div class="flex items-center space-x-2 mt-5">
+          <div class="flex space-x-2 mt-5">
             <h4 class="text-lg text-gray-300 font-bold">Upgrade to a curated experience packed with tools and benefits, dedicated to businesses</h4>
           </div>
   
-          <div class="flex items-center space-x-2 mt-5">
-            <svg class="h-8 w-8 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+          <div class="flex space-x-2 mt-5">
+            <svg class="h-7 w-7 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
             </svg>
             <h4 class="text-lg text-gray-300 font-medium">Connect to freelancers with proven business experience</h4>
           </div>
         
-          <div class="flex items-center space-x-2 mt-2">
+          <div class="flex space-x-2 mt-2">
             <svg class="h-8 w-8 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
             </svg>
             <h4 class="text-lg text-gray-300 font-medium">Get matched with the perfect talent by a customer success manager</h4>
           </div>
           
-          <div class="flex items-center space-x-2 mt-2">
+          <div class="flex space-x-2 mt-2">
             <svg class="h-8 w-8 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
             </svg>
@@ -370,7 +455,20 @@
   
         </div>
         <div class="max-w-lg">
-          <img class="w-full object-cover" src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80">
+          <div class="grid grid-cols-3 grid-flow-row gap-4">
+            <div class="col-span-2 row-span-2">
+              <img class="w-full object-cover rounded-lg" src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80">
+            </div>
+            <div>
+              <img class="w-full object-cover rounded-lg" src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80">
+            </div>
+            <div>
+              <img class="w-full object-cover rounded-lg -mt-1" src="https://images.unsplash.com/photo-1522079091912-1694092d395e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTQxfHxmcmVlbGFuY2VyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+            </div>
+            <div class="col-span-3">
+              <img class="w-full object-cover h-48 rounded-lg" src="https://images.unsplash.com/photo-1520110120835-c96534a4c984?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Njh8fHRlYW0lMjB3b3JrfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+            </div>
+          </div>
         </div>
     </div>
     </div>
@@ -390,19 +488,19 @@
   </section>
 
   <!-- Incredible Logo -->
-  <section class="mt-20 bg-blue-500 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
-    <article class="grid grid-cols-2 p-3">
-      <div class="max-w-sm ml-14">
+  <section class="mt-20 bg-indigo-500 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+    <article class="grid grid-cols-1 md:grid-cols-2 p-4 py-5">
+      <div class="max-w-md md:ml-14 mx-auto">
         <h2 class="text-2xl text-white font-bold">fiverr <span class="font-normal">logo maker.</span></h2>
         <div class="flex items-center space-x-2 mt-5">
-          <h4 class="text-3xl text-white font-bold">Make an incredible logo <span class="italic">in minutes</span></h4>
+          <h4 class="text-3xl text-white font-bold">Make an incredible logo <span class="italic font-medium">in minutes</span></h4>
         </div>
         <p class="text-base font-semibold text-white mt-5">Pre-designed by top talent. Just add your touch.</p>
-        <button class="bg-gray-100 text-blue-500 font-semibold px-5 py-2 mt-5 rounded-md">Try Fiverr Logo Maker</button>
+        <button class="bg-gray-100 hover:bg-gray-300 text-blue-600 hover:text-blue-700 font-semibold px-5 py-2 mt-5 rounded-md">Try Fiverr Logo Maker</button>
       </div>
 
-      <div>
-        <img class="object-cover h-64 rounded-md" src="https://images.unsplash.com/photo-1599843533756-8d3aac8ff16b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80">
+      <div class="mt-5">
+        <img class="object-cover w-full h-64 rounded-md" src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
       </div>
     </article>
   </section>
@@ -485,13 +583,13 @@
       
       <div class="flex space-x-20">
 
-        <div class="mt-7 grid grid-cols-3 gap-8 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+        <div class="mt-7 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
           <article>
               <div class="w-auto">
                 <img class="object-cover w-full h-56 rounded-md" src="https://images.unsplash.com/photo-1591382696684-38c427c7547a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8d29yayUyMGZyb20lMjBob21lfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
                 
                 <div class="py-4 bg-white rounded-bl-md rounded-br-md">
-                  <p class="text-lg text-gray-700 font-bold tracking-tight">Start an online business and work from home</p>
+                  <p class="text-base text-gray-700 font-bold tracking-tight">Start an online business and work from home</p>
                   <p class="text-base text-gray-500 font-semibold">A complete guide to starting a small business</p>
                 </div>
               </div>
@@ -502,7 +600,7 @@
               <img class="object-cover w-full h-56 rounded-md" src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8ZGlnaXRhbCUyMG1hcmtldGluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
               
               <div class="py-4 bg-white rounded-bl-md rounded-br-md">
-                <p class="text-lg text-gray-700 font-bold tracking-tight">Digital marketing made easy</p>
+                <p class="text-base text-gray-700 font-bold tracking-tight">Digital marketing made easy</p>
                 <p class="text-base text-gray-500 font-semibold">A practical guide to understand what is  digital marketing</p>
               </div>
             </div>
@@ -513,7 +611,7 @@
             <img class="object-cover w-full h-56 rounded-md" src="https://images.unsplash.com/photo-1580031818024-4a12b3477c95?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGJ1c2luZXNzJTIwbG9nb3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
             
             <div class="py-4 bg-white rounded-bl-md rounded-br-md">
-              <p class="text-lg text-gray-700 font-bold tracking-tight">Create a logo for your Business
+              <p class="text-base text-gray-700 font-bold tracking-tight">Create a logo for your Business
               <p class="text-base text-gray-500 font-semibold">A step-by-step guide to create a memorable business logo</p>
             </div>
           </div>
@@ -525,15 +623,15 @@
   </section>
 
   <!-- Find Talent -->
-  <section class="mt-20 bg-rose-900 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
-    <article class="flex justify-between items-center py-20">
-      <div class="max-w-xl ml-14 leading-normal">
-        <p class="text-5xl font-bold text-gray-200">Find the <span class="italic font-medium text-4xl">talent</span> needed to</p>
-        <p class="text-5xl font-bold text-gray-200">get your business <span class="italic font-medium text-4xl">growing</span>.</p>
-        <button class="bg-green-500 text-white font-semibold px-5 py-2 mt-10 rounded-md">Get Started</button>
+  <section class="mt-20 bg-rose-900 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+    <article class="grid-cols-1 md:flex justify-between items-center py-10 md:py-20 rounded-md">
+      <div class="max-w-md md:max-w-xl ml-7 md:ml-14 leading-normal">
+        <p class="text-3xl md:text-5xl font-bold text-gray-200">Find the <span class="italic font-medium text-3xl md:text-4xl">talent</span> needed to</p>
+        <p class="text-3xl md:text-5xl font-bold text-gray-200">get your business <span class="italic font-medium text-3xl md:text-4xl">growing</span>.</p>
+        <button class="bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-2 mt-10 rounded-md">Get Started</button>
       </div>
 
-      <div>
+      <div class="hidden md:block">
         <img class="object-cover mr-10 h-64 rounded-md" src="https://images.unsplash.com/photo-1599843533756-8d3aac8ff16b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80">
       </div>
     </article>
@@ -541,7 +639,7 @@
 
   <!-- Footer -->
   <footer class="mt-20 border-t-2 border-gray-200 mb-4">
-    <div class="grid grid-cols-5 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-10">
+    <div class="hidden md:grid grid-cols-5 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-10">
       <div>
         <h1 class="text-base text-gray-700 font-bold">Categories</h1>
         <ul class="mt-5 space-y-3">
@@ -607,16 +705,16 @@
       </div>
     </div>
 
-    <div class="border-t-2 border-gray-200 mt-20 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
-      <div class="flex justify-between items-center mt-5">
-        <div class="flex items-center space-x-2">
-          <p class="text-gray-500 text-xl font-bold md:text-3xl">fiverr<span class="text-3xl text-gray-500">.</span></p>
-          <p class="font-semibold text-sm text-gray-500">Fiverr international Ltd. 2021</p>
+    <div class="border-t-2 border-gray-200 mt-20 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+      <div class="md:flex justify-between items-center mt-5">
+        <div class="md:flex items-center space-x-6">
+          <p class="text-gray-500 text-center md:text-left text-3xl font-bold md:text-3xl">fiverr<span class="text-3xl text-gray-500">.</span></p>
+          <p class="font-semibold text-center md:text-left text-sm text-gray-500 mt-4 md:mt-0">Fiverr international Ltd. 2021</p>
         </div>
         
-        <div class="flex space-x-10">
+        <div class="md:flex space-x-10">
           <div>
-            <ul class="flex space-x-5">
+            <ul class="flex justify-center mt-4 md:mt-0 space-x-8 md:space-x-5">
               <li>
                 <svg class="text-gray-400 fill-current h-5 w-5"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                   <path d="M17.316 6.246c.008.162.011.326.011.488 0 4.99-3.797 10.742-10.74 10.742-2.133 0-4.116-.625-5.787-1.697a7.577 7.577 0 005.588-1.562 3.779 3.779 0 01-3.526-2.621 3.858 3.858 0 001.705-.065 3.779 3.779 0 01-3.028-3.703v-.047a3.766 3.766 0 001.71.473 3.775 3.775 0 01-1.168-5.041 10.716 10.716 0 007.781 3.945 3.813 3.813 0 01-.097-.861 3.773 3.773 0 013.774-3.773 3.77 3.77 0 012.756 1.191 7.602 7.602 0 002.397-.916 3.789 3.789 0 01-1.66 2.088 7.55 7.55 0 002.168-.594 7.623 7.623 0 01-1.884 1.953z"/>
@@ -646,7 +744,7 @@
           </div>
   
           <div>
-            <ul class="flex space-x-4">
+            <ul class="flex justify-center mt-4 md:mt-0 space-x-4">
               <li>
                 <div class="flex items-center">
                   <svg class="text-gray-400 fill-current h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
@@ -684,5 +782,7 @@
         new Splide( '.splide', options ).mount();
     } );
 </script>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
 </body>
 </html>
