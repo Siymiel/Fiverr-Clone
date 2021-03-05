@@ -1,0 +1,1115 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fiverr - Freelance Services Marketing</title>
+  <!-- Style -->
+  <link href="css/style.css" rel="stylesheet">
+  <link href="splidejs/dist/css/themes/splide-default.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" />
+   <!-- Require css -->
+   <style>
+    .scroll-hidden::-webkit-scrollbar {
+        height: 0px;
+        background: transparent; /* make scrollbar transparent */
+    }
+    </style>
+
+    <!-- Script -->
+    <script src="splidejs/dist/js/splide.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" defer></script>
+</head>
+
+<body x-data="{open: false}">
+  <!-- Header -->
+  <header class="w-full">
+    <!-- x-data="{scrollAtTop: true}" -->
+    <!-- :class="{'bg-white shadow-md': !scrollAtTop}" @scroll.window="scrollAtTop = (window.pageYoffset > 5) ? false: true" -->
+      <nav class="shadow w-full">
+          <div class="max-w-7xl mx-auto px-6 py-3">
+              <div class="flex flex-col md:flex-row md:justify-between md:items-center">
+                  <div class="md:flex justify-between items-center hidden">
+                      <!-- LOGO & SEARCH INPUT ON DESKTOP -->
+                      <div class="flex items-center ml-10">
+                         <!-- DESKTOP LOGO -->
+                          <a class="text-gray-800 text-xl font-bold md:text-3xl hover:text-gray-700 hidden md:flex" href="#">fiverr<span class="text-3xl text-green-400">.</span></a>
+  
+                          <!-- SEARCH INPUT ON DESKTOP -->
+                          <div class="mx-10 hidden md:block">
+                              <div class="relative">
+                                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                                      <!-- search icon -->
+                                      <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                          <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                          </path>
+                                      </svg>
+                                  </span>
+                                  <!-- search input -->
+                                  <div class="flex">
+                                    <input type="text" class="pl-10 py-1 pr-4 w-full bg-white text-gray-700 border text-sm font-semibold border-gray-300 focus:outline-none focus:ring" placeholder="Find Services">
+                                    <button class="bg-green-500 text-white font-bold text-sm px-3">Search</button>
+                                  </div>
+                              </div>
+                          </div>
+                          <!-- END OF SEARCH INPUT ON DESKTOP -->
+                      </div>
+                  </div>
+
+                  <!-- MOBILE HEADER -->
+                  <div class="md:hidden">
+                    <div class="flex justify-between items-center">
+                       <!-- MOBILE MENU BUTTON - HAMBURGER -->
+                      <div>
+                          <button type="button" @click="open = true" class="text-gray-500 hover:text-gray-600 focus:outline-none focus:text-gray-600" aria-label="toggle menu">
+                              <!-- hamburger icon -->
+                              <svg viewBox="0 0 24 24" class="h-7 w-7 fill-current">
+                                  <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
+                              </svg>
+                          </button>
+                      </div>
+                       <!-- MOBILE LOGO -->
+                       <div>
+                        <a class="text-gray-800 text-3xl font-bold hover:text-gray-700 md:hidden" href="#">fiverr<span class="text-3xl text-green-400">.</span></a>
+                       </div>
+
+                      <div>
+                        <p class="text-base text-gray-500 font-bold">Join</p>
+                      </div>
+                    </div>
+                </div>
+                  <!-- END OF MOBILE HEADER -->
+  
+                  <!-- MOBILE MENU OPEN: "BLOCK", MENU CLOSED: "HIDDEN" -->
+                  <div class="md:flex items-center">
+                      <div class="hidden md:flex flex-col mt-2 md:flex-row md:mt-0 md:mx-1 font-bold">
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Fiverr Business</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Explore</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">English</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">$USD</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Become a Seller</a>
+                          <a class="my-1 text-base text-gray-500 leading-5 hover:text-green-400 md:mx-3 md:my-0" href="#">Sign In</a>
+                      </div>
+
+                    <div class="hidden md:flex items-center py-2 -mx-1 md:mx-0">
+                        <a class="block w-1/2 px-3 py-1 mx-1 rounded text-center text-sm border-2 border-green-400 font-bold text-green-400 leading-5 md:mx-0 md:w-auto" href="#">Join</a>
+                    </div>
+                  </div>
+              </div>
+              
+              <!-- SUB-MENU -->
+              <div class="border-t-2 border-b-2 border-gray-300 mt-4 pb-4 hidden">
+                <div class="mt-3 -mx-3 overflow-y-auto whitespace-nowrap scroll-hidden">
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Graphic & Design</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Digital Marketing</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Writing & Translation</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Video & Animation</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Music & Audio</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Programming & Tech</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Business</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Lifestyle</a>
+                    <a class="text-sm font-semibold text-gray-500 hover:text-green-400 leading-5 mx-4 md:my-0" href="#">Industries</a>
+                </div>
+              </div>
+          </div>
+
+           <!-- Side menu -->
+           <div class="w-64 bg-white absolute z-10 shadow-md md:hidden" x-show="open" @click.away="open = false">
+            <div class="mt-10 ml-5 h-screen">
+              <button class="bg-green-500 text-white text-base font-semibold hover:bg-green-600 rounded-md px-4 py-2">Join Fiverr</button>
+              <div class="mt-5">
+                <ul class="space-y-3">
+                  <li class="font-semibold text-gray-700">Sign in</li>
+                  <li x-data="{isOpen: false}">
+                    <p class="font-semibold text-gray-700" @click="isOpen = !isOpen">Explore</p>
+                    <ul class="text-gray-500 font-semibold space-y-3 mt-3" x-show="isOpen">
+                      <li class="hover:underline">Discover</li>
+                      <li class="hover:underline">Guides</li>
+                      <li class="hover:underline">Learn</li>
+                      <li class="hover:underline">Community</li>
+                      <li class="hover:underline">Podcast</li>
+                      <li class="hover:underline">Blog</li>
+                    </ul>
+                  </li>
+                  <li class="font-semibold text-green-600">Fiverr Pro</li>
+                  <li class="font-semibold text-green-500">Fiverr Business</li>
+                </ul>
+              </div>
+
+              <div class="mt-10">
+                <p class="border-b border-gray-400 text-base font-semibold mr-5">General</p>
+                <ul class="space-y-3 mt-3">
+                  <li class="font-semibold text-gray-700">Home</li>
+                  <li class="font-semibold text-gray-700">English</li>
+                  <li class="font-semibold text-gray-700">USD - $</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- End of Side menu -->
+      </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section>
+    <div class="w-full bg-cover bg-center relative bg-fixed hidden md:block" style="height:80vh; background-image: url('https://images.unsplash.com/photo-1520624598504-ed830bd895d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');">
+      <div class="absolute">  
+        <div class="flex ml-24 mt-32">
+          <div>
+            <p class="text-5xl font-semibold text-gray-100 leading-tight">Find the perfect <span class="italic font-normal">freelance</span></p>
+            <p class="text-5xl font-semibold text-gray-100">services for your business</p>
+  
+             <!-- Search input on desktop screen -->
+             <div class="mt-8 max-w-2xl">
+              <div class="relative">
+                  <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                      <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                          <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                  </span>
+                  <div class="flex">
+                    <input type="text" class="pl-10 pr-4 py-2 rounded-tl-md rounded-bl-md w-full bg-white text-gray-700 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-gray-400" placeholder="Try 'building mobile app'">
+                    <button class="bg-green-500 text-white font-bold text-base py-1 px-4 rounded-tr-md rounded-br-md">Search</button>
+                  </div>
+              </div>
+
+            </div>
+            <div class="flex items-center mt-5">
+              <p class="font-semibold text-sm mr-4 text-gray-100">Popular:</p>
+              <ul class="flex space-x-3 font-semibold text-gray-100">
+                <li class="border-2 border-white rounded-3xl text-sm px-3 hover:bg-white hover:text-gray-900 cursor-pointer">Web and Mobile Design</li>
+                <li class="border-2 border-white rounded-3xl text-sm px-3 hover:bg-white hover:text-gray-900 cursor-pointer">Wordpress</li>
+                <li class="border-2 border-white rounded-3xl text-sm px-3 hover:bg-white hover:text-gray-900 cursor-pointer">Logo Design</li>
+                <li class="border-2 border-white rounded-3xl text-sm px-3 hover:bg-white hover:text-gray-900 cursor-pointer">Dropshipping</li>
+              </ul>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-full bg-cover bg-center md:hidden" style="height:50vh; background-image: url('https://images.unsplash.com/photo-1520624598504-ed830bd895d3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');">
+      <div class="max-w-md mx-auto py-10">
+        <div class="mb-8">
+          <p class="text-white text-3xl font-bold">Find the perfect <span class="italic font-medium">freelance</span></p>
+          <p class="text-white text-3xl font-bold">services for your business</p>
+        </div>
+        <!-- Search input on mobile screen -->
+        <div class="relative">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+                <svg class="h-5 w-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                    <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    </path>
+                </svg>
+            </span>
+
+            <input type="text" class="pl-10 pr-4 py-2 w-full bg-white text-gray-700 border border-gray-300 rounded-md focus:border-blue-500 focus:outline-none focus:ring" placeholder="Try 'building mobile app'">
+        </div>
+        <button class="bg-green-400 w-full rounded-md py-2 text-white font-bold mt-3">Search</button>
+      </div>
+      </div>
+  </section>
+
+  <!-- Trusted By -->
+  <section class="bg-gray-100 py-4">
+    <div class="max-w-3xl mx-auto md:flex items-center hidden">
+      <p class="font-bold text-base mr-14 text-gray-400">Trusted by:</p>
+      <ul class="flex space-x-10 items-baseline">
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook.543cf10.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook2x.2eb3efa.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook.31d5f92.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook2x.188a797.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook.31d5f92.png" alt="facebook"></picture>
+        </li>
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google.aaaa0ad.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google2x.b5c24c4.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google.517da09.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google2x.06d74c8.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google.517da09.png" alt="Google"></picture>
+        </li>
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix.3cb353a.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix2x.02746a2.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix.e3ad953.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix2x.887e47e.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix.e3ad953.png" alt="NETFLIX"></picture>
+        </li>
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.128c0d9.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg2x.259884d.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.8b7310b.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg2x.6dc32e4.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.8b7310b.png" alt="P&amp;G"></picture>
+        </li>
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/paypal.9e4defc.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/paypal2x.e48e2b0.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/paypal.ec56157.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/paypal2x.22728be.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/paypal.ec56157.png" alt="PayPal"></picture>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Mobile View -->
+    <div class="max-w-xs mx-auto flex items-center md:hidden">
+      <ul class="flex space-x-4 items-baseline">
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook.543cf10.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook2x.2eb3efa.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook.31d5f92.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook2x.188a797.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/facebook.31d5f92.png" alt="facebook"></picture>
+        </li>
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google.aaaa0ad.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google2x.b5c24c4.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google.517da09.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google2x.06d74c8.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/google.517da09.png" alt="Google"></picture>
+        </li>
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix.3cb353a.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix2x.02746a2.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix.e3ad953.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix2x.887e47e.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/netflix.e3ad953.png" alt="NETFLIX"></picture>
+        </li>
+        <li>
+          <picture><source media="(max-width: 899px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.128c0d9.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg2x.259884d.png 2x"><source media="(min-width: 900px)" srcset="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.8b7310b.png 1x, https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg2x.6dc32e4.png 2x"><img src="https://fiverr-res.cloudinary.com/npm-assets/@fiverr/logged_out_homepage_perseus/apps/pandg.8b7310b.png" alt="P&amp;G"></picture>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Featured -->
+  <section class="mb-10">
+    <div class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+      <p class="text-3xl text-gray-700 font-bold">Popular professional services</p>
+    </div>
+    <div class="splide max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-6">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1612429971410-e72083471235?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDN8aVVJc25WdGpCMFl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Build your branch</p>
+                <h1 class="text-2xl font-bold relative text-white">Logo Design</h1>
+              </div>
+              </div>
+            </div>
+          </li> 
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1612477691321-967456bc1c30?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDF8Sjl5clBhSFhSUVl8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+                <div class="py-4 pl-4">
+                  <p class="text-white font-semibold relative text-sm">Customize your site</p>
+                  <h1 class="text-2xl font-bold relative text-white">WordPress</h1>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1567596388756-f6d710c8fc07?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bWljcm9waG9uZXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+                <div class="py-4 pl-4">
+                  <p class="text-white font-semibold relative text-sm">Share your message</p>
+                  <h1 class="text-2xl font-bold relative text-white">Voice Over</h1>
+                </div>
+              </div>
+            </div>
+          </li> 
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1552168324-d612d77725e3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MjF8fGNhbWVyYXxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+                <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+                <div class="py-4 pl-4">
+                  <p class="text-white font-semibold relative text-sm">Engage your audience</p>
+                  <h1 class="text-2xl font-bold relative text-white">Video Explainer</h1>
+                </div>
+              </div>
+            </div>
+          </li> 
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?ixid=MXwxMjA3fDB8MHx0b3BpYy1mZWVkfDk3fEo5eXJQYUhYUlFZfHxlbnwwfHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Reach more customers</p>
+                <h1 class="text-2xl font-bold relative text-white">Social Media</h1>
+              </div>
+              </div>
+            </div>
+          </li> 
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1593437955835-fc8c51725430?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=964&q=80');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Unlock growth online</p>
+                <h1 class="text-2xl font-bold relative text-white">SEO</h1>
+              </div>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1491841573634-28140fc7ced7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Go global</p>
+                <h1 class="text-2xl font-bold relative text-white">Translation</h1>
+              </div>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1585378335564-c220f04a9ad0?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Learn your business</p>
+                <h1 class="text-2xl font-bold relative text-white">Data Entry</h1>
+              </div>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1512503959943-9d35a3636b51?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1051&q=80');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Showcase your story</p>
+                <h1 class="text-2xl font-bold relative text-white">Book Covers</h1>
+              </div>
+              </div>
+            </div>
+          </li>
+          <li class="splide__slide">
+            <div>
+              <div class="w-full md:w-56 h-80 relative bg-cover bg-center rounded-lg" style="background-image: url('https://images.unsplash.com/photo-1604545199361-0b929cdb2e6c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80');">
+              <div class="absolute inset-0 bg-gray-800 opacity-25"></div>
+              <div class="py-4 pl-4">
+                <p class="text-white font-semibold relative text-sm">Color your business</p>
+                <h1 class="text-2xl font-bold relative text-white">Illustration</h1>
+              </div>
+              </div>
+            </div>
+          </li>                    
+        </ul>
+      </div>
+    </div>
+  </section>
+ 
+  <!-- Freelance Talent -->
+  <section class="w-full bg-green-50">
+    <div class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 py-20">
+
+        <div class="max-w-sm">
+          <h2 class="text-3xl text-gray-700 font-bold">A whole world of freelance talent at your fingertips</h2>
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-5 w-5 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-700 font-bold">The best for every budget</h4>
+          </div>
+          <p class="text-base font-medium text-gray-500 tracking-wide">Find high-quality services at every price point. No hourly rates, just project-based pricing.</p>
+  
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-5 w-5 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-700 font-bold">Quality work done quickly</h4>
+          </div>
+          <p class="text-base font-medium text-gray-500 tracking-wide">Find the right freelancer to begin working on your project within minutes.</p>
+  
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-5 w-5 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-700 font-bold">Protected payments, every time</h4>
+          </div>
+          <p class="text-base font-medium text-gray-500 tracking-wide">Always know what you'll pay upfront. Your payment isn't released until you approve the work.</p>
+  
+          <div class="flex items-center space-x-2 mt-5">
+            <svg class="h-5 w-5 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-700 font-bold">24/7 support</h4>
+          </div>
+          <p class="text-base font-medium text-gray-500 tracking-wide">Questions? Our round-the-clock support team is available to help anytime, anywhere.</p>
+        </div>
+
+        <div class="w-full grid items-center mt-10 md:mt-0">
+          <a data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/6stlCkUDG_s" href="javascript:;" class="relative">
+            <iframe class="rounded-md w-full h-64 md:h-96" src="https://www.youtube.com/embed/6stlCkUDG_s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <div class="absolute inset-0 cursor-pointer" data-fancybox data-type="iframe" data-src="https://www.youtube.com/embed/6stlCkUDG_s"></div>
+          </a>
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Marketplace -->
+  <section>
+    <div>
+      <div class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+        <h4 class="text-3xl text-gray-700 font-bold">Explore the marketplace</h4>
+      </div>
+
+      <article class="grid grid-cols-2 md:grid-cols-4 gap-10 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-12">
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13 10a2 2 0 104 0V5a2 2 0 10-4 0v5zM5 8a2 2 0 100 4h5a2 2 0 100-4H5zm10 5a2 2 0 100 4h5a2 2 0 100-4h-5zm-5 9a2 2 0 01-2-2v-5a2 2 0 114 0v5a2 2 0 01-2 2zM8 5a2 2 0 114 0v2h-2a2 2 0 01-2-2zM3 15a2 2 0 104 0v-2H5a2 2 0 00-2 2zm14 5a2 2 0 11-4 0v-2h2a2 2 0 012 2zm5-10a2 2 0 10-4 0v2h2a2 2 0 002-2z"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Graphics & Design</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M3 6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2V6zm2 0h14v8H5V6z" fill="currentColor"/>
+                <path d="M2 18a1 1 0 100 2h20a1 1 0 100-2H2z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Digital Marketing</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M2 19a3 3 0 003 3h14a3 3 0 003-3V5a3 3 0 00-3-3H5a3 3 0 00-3 3v14zm18 0a1 1 0 01-1 1H5a1 1 0 01-1-1V5a1 1 0 011-1h5v8.011h2.395L14 9.864l1.605 2.147H18V4h1a1 1 0 011 1v14zM16 4h-4v5.336l2-2.676 2 2.676V4z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Writing & Translation</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24"  fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M12 21a9 9 0 100-18 9 9 0 000 18zm0 2c6.075 0 11-4.925 11-11S18.075 1 12 1 1 5.925 1 12s4.925 11 11 11z" fill="currentColor"/>
+                <path d="M16 12l-6 4.33V7.67L16 12z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Video & Animation</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M9 4a3 3 0 116 0v8a3 3 0 11-6 0V4zm4 0v8a1 1 0 11-2 0V4a1 1 0 112 0z" fill="currentColor"/>
+                <path d="M18 12a6.002 6.002 0 01-5 5.917V21h4v2H7v-2h4v-3.083A6.002 6.002 0 016 12V9h2v3a4 4 0 008 0V9h2v3z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Music & Audio</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M13.325 3.05L8.667 20.432l1.932.518 4.658-17.382-1.932-.518zM7.612 18.36l1.36-1.448-.001-.019-5.094-4.78 4.79-5.105-1.458-1.369-6.16 6.563 6.563 6.159zM16.388 18.36l-1.36-1.448.001-.019 5.094-4.78-4.79-5.105 1.458-1.369 6.16 6.563-6.563 6.159z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Programming & Tech</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M17 5.5h3a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2v-12a2 2 0 012-2h3a3 3 0 013-3h4a3 3 0 013 3zm-3-1h-4a1 1 0 00-1 1h6a1 1 0 00-1-1zm6 3H4v2h16v-2zm-16 12v-8h3v2h4v-2h2v2h4v-2h3v8H4z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Business</p>
+        </div>
+
+        <div>
+          <div class="flex justify-center">
+            <div class="border-b-2 border-gray-300 hover:border-green-400 p-2">
+              <svg class="fill-current text-gray-800" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M6 2.5a1 1 0 00-1 1v2a1 1 0 002 0v-2a1 1 0 00-1-1z" fill="currentColor"/>
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M13 21.5a6.002 6.002 0 005.917-5H19a4 4 0 000-8v-1H1v8a6 6 0 006 6h6zM3 9.5v6a4 4 0 004 4h6a4 4 0 004-4v-6H3zm18 3a2 2 0 01-2 2v-4a2 2 0 012 2z" fill="currentColor"/>
+                <path d="M9 3.5a1 1 0 112 0v2a1 1 0 11-2 0v-2zM14 2.5a1 1 0 00-1 1v2a1 1 0 102 0v-2a1 1 0 00-1-1z" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <p class="text-base text-center">Lifestyle</p>
+        </div>
+
+      </article>
+    </div>
+  </section>
+
+  <!-- Business Solution -->
+  <section class="w-full" style="background-color:#164E63;">
+    <div class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-20 py-20">
+
+        <div class="max-w-md">
+          <h2 class="text-2xl text-gray-300 font-bold">fiverr business</h2>
+          
+          <div class="flex space-x-2 mt-5">
+            <h4 class="text-3xl text-gray-300 font-bold">A business solution designed for <span class="italic">teams</span></h4>
+          </div>
+         
+          
+          <div class="flex space-x-2 mt-5">
+            <h4 class="text-lg text-gray-300 font-bold">Upgrade to a curated experience packed with tools and benefits, dedicated to businesses</h4>
+          </div>
+  
+          <div class="flex space-x-2 mt-5">
+            <svg class="h-7 w-7 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-300 font-medium">Connect to freelancers with proven business experience</h4>
+          </div>
+        
+          <div class="flex space-x-2 mt-2">
+            <svg class="h-8 w-8 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-300 font-medium">Get matched with the perfect talent by a customer success manager</h4>
+          </div>
+          
+          <div class="flex space-x-2 mt-2">
+            <svg class="h-8 w-8 text-gray-500 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+              <path d="M11 10L8.698 7.494a.512.512 0 010-.718.5.5 0 01.71 0l2.807 2.864a.51.51 0 010 .717l-2.807 2.864a.498.498 0 01-.71 0 .51.51 0 010-.717L11 10zM10 .4a9.6 9.6 0 019.6 9.6c0 5.303-4.298 9.6-9.6 9.6S.4 15.303.4 10A9.6 9.6 0 0110 .4zm0 17.954a8.354 8.354 0 100-16.709 8.354 8.354 0 000 16.709z"/>
+            </svg>
+            <h4 class="text-lg text-gray-300 font-medium">Manage teamwork and boost productivity with one powerful workspace</h4>
+          </div>
+          
+  
+        </div>
+        <div class="max-w-lg">
+          <div class="grid grid-cols-3 grid-flow-row gap-4">
+            <div class="col-span-2 row-span-2">
+              <img class="w-full object-cover rounded-lg" src="https://images.unsplash.com/photo-1423666639041-f56000c27a9a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80">
+            </div>
+            <div>
+              <img class="w-full object-cover rounded-lg" src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80">
+            </div>
+            <div>
+              <img class="w-full object-cover rounded-lg -mt-1" src="https://images.unsplash.com/photo-1522079091912-1694092d395e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTQxfHxmcmVlbGFuY2VyfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+            </div>
+            <div class="col-span-3">
+              <img class="w-full object-cover h-48 rounded-lg" src="https://images.unsplash.com/photo-1520110120835-c96534a4c984?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Njh8fHRlYW0lMjB3b3JrfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+            </div>
+          </div>
+        </div>
+    </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="mt-28 max-w-md sm:max-w-lg md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+    <article>
+      <!-- class="grid grid-cols-2 gap-4 items-center" -->
+      <div class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <!-- slide 1 -->
+            <li class="splide__slide">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                <div>
+                  <iframe class="rounded-md" width="480" height="250" src="https://www.youtube.com/embed/HccqokXN2n8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div>
+                  <h2 class="text-lg md:text-xl text-gray-500">Brighid Gannon (DNP, PMHNP-BC), CO-Founder | Lavender</h2>
+                  <p class="italic text-xl font-semibold md:text-2xl text-green-800 mt-5 leading-relaxed">"We use Fiverr for SEO, our logo, website, copy, animated videos - literally everything. It was like working with a human right next you versus being across the world"</p>
+                </div>
+              </div>
+            </li>
+             <!-- slide 2 -->
+             <li class="splide__slide">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                <div>
+                  <iframe class="rounded-md" width="480" height="250"  src="https://www.youtube.com/embed/4N8oOj_aue8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div>
+                  <h2 class="text-lg md:text-xl text-gray-500">Caitlin Tormey, Chief Commercial Officer | NAADAM</h2>
+                  <p class="italic text-xl font-semibold md:text-2xl text-green-800 mt-5 leading-relaxed">"We've used Fiverr for Shopify web development, graphic design, and backend web development. Working with Fiverr makes my job a little bit easier everyday."</p>
+                </div>
+              </div>
+            </li>
+            <!-- slide 3 -->
+            <li class="splide__slide">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                <div>
+                  <iframe class="rounded-md" width="480" height="250"  src="https://www.youtube.com/embed/NpdQkEPELh4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div>
+                  <h2 class="text-lg md:text-xl text-gray-500">Tim and Dan Joo, Co-Founders | HERFEST</h2>
+                  <p class="italic text-xl font-semibold md:text-2xl text-green-800 mt-5 leading-relaxed">"When you want to create a business bigger than yourself, you need a lot of help. That's what Fiverr does."</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Incredible Logo -->
+  <section class="mt-20 bg-indigo-500 max-w-lg sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+    <article class="grid grid-cols-1 md:grid-cols-2 p-4 py-5">
+      <div class="max-w-md md:ml-14 mt-5 mx-auto">
+        <h2 class="text-2xl text-white font-bold">fiverr <span class="font-normal">logo maker.</span></h2>
+        <div class="flex items-center space-x-2 mt-5">
+          <h4 class="text-3xl text-white font-bold">Make an incredible logo <span class="italic font-medium">in minutes</span></h4>
+        </div>
+        <p class="text-base font-semibold text-white mt-5">Pre-designed by top talent. Just add your touch.</p>
+        <button class="bg-gray-100 hover:bg-gray-300 text-blue-600 hover:text-blue-700 font-semibold px-5 py-2 mt-5 rounded-md">Try Fiverr Logo Maker</button>
+      </div>
+
+      <div class="mt-5 mb-5 md:mr-5">
+        <img class="object-cover w-full h-64 rounded-md" src="https://images.unsplash.com/photo-1547826039-bfc35e0f1ea8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8M3x8YXJ0fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60">
+      </div>
+    </article>
+  </section>
+
+  <!-- Freelancer's inspiration -->
+  <section class="bg-gray-100">
+    <article class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-20 py-20">
+      <div class="flex justify-between items-center">
+        <h4 class="text-2xl font-bold">Get inspired with projects made by our freelancers</h4>
+        <p class="text-blue-600 text-base font-semibold hidden md:block"><a href="#">See More Projects ></a></p>
+      </div>
+
+        <div class="splide mt-10">
+          <div class="splide__track">
+            <ul class="splide__list">
+              <!-- splide 1 -->
+              <li class="splide__slide">
+                <div class="w-auto">
+                  <img class="object-cover h-56 w-full rounded-tl-md rounded-tr-md" src="https://images.unsplash.com/photo-1516720010788-0e492153f9ee?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80" alt="avatar">
+                  
+                  <div class="py-4 bg-white rounded-bl-md rounded-br-md shadow-md">
+                     <div class="flex ml-5">
+                       <img class="rounded-full h-9 w-9 object-cover" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                       <div class="ml-3">
+                         <p class="text-base font-bold text-gray-800">Flyer Design</p>
+                         <p class="text-sm text-gray-400 font-semibold">by spickex</p>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+              </li>
+               <!-- splide 2 -->
+              <li class="splide__slide">
+                <div class="w-auto">
+                  <img class="object-cover h-56 w-full rounded-tl-md rounded-tr-md" src="https://images.unsplash.com/photo-1532618500676-2e0cbf7ba8b8?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NjJ8fGJ1c2luZXNzJTIwbG9nbyUyMGRlc2lnbnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
+                  
+                  <div class="py-4 bg-white rounded-bl-md rounded-br-md shadow-md">
+                     <div class="flex ml-5">
+                       <img class="rounded-full h-9 w-9 object-cover" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                       <div class="ml-3">
+                         <p class="text-base font-bold text-gray-800">Logo Design</p>
+                         <p class="text-sm text-gray-400 font-semibold">by niccoffman</p>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+              </li>
+               <!-- splide 3 -->
+              <li class="splide__slide">
+                <div class="w-auto">
+                  <img class="object-cover h-56 w-full rounded-tl-md rounded-tr-md" src="https://images.unsplash.com/photo-1542272606-fe889704e0f6?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTN8fGJyYW5kJTIwc3R5bGV8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
+                  
+                  <div class="py-4 bg-white rounded-bl-md rounded-br-md shadow-md">
+                     <div class="flex ml-5">
+                       <img class="rounded-full h-9 w-9 object-cover" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                       <div class="ml-3">
+                         <p class="text-base font-bold text-gray-800">Brand Style Guides</p>
+                         <p class="text-sm text-gray-400 font-semibold">by digitalgeria</p>
+                       </div>
+                     </div>
+                  </div>
+                </div>        
+              </li>
+               <!-- splide 4 -->
+              <li class="splide__slide">
+                <div class="w-auto">
+                  <img class="object-cover h-56 w-full rounded-tl-md rounded-tr-md" src="https://images.unsplash.com/photo-1605036927639-1555563331a9?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Njh8fHBhY2thZ2luZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
+                  
+                  <div class="py-4 bg-white rounded-bl-md rounded-br-md shadow-md">
+                     <div class="flex ml-5">
+                       <img class="rounded-full h-9 w-9 object-cover" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                       <div class="ml-3">
+                         <p class="text-base font-bold text-gray-800">Packaging Design</p>
+                         <p class="text-sm text-gray-400 font-semibold">by mijalzagier</p>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+              </li>
+              <!-- splide 5 -->
+              <li class="splide__slide">
+                <div class="w-auto">
+                  <img class="object-cover h-56 w-full rounded-tl-md rounded-tr-md" src="https://images.unsplash.com/photo-1576497588294-94553e04534e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=811&q=80" alt="avatar">
+                  
+                  <div class="py-4 bg-white rounded-bl-md rounded-br-md shadow-md">
+                     <div class="flex ml-5">
+                       <img class="rounded-full h-9 w-9 object-cover" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                       <div class="ml-3">
+                         <p class="text-base font-bold text-gray-800">Illustration</p>
+                         <p class="text-sm text-gray-400 font-semibold">by dvincentgomes</p>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+              </li>
+               <!-- splide 6 -->
+               <li class="splide__slide">
+                <div class="w-auto">
+                  <img class="object-cover h-56 w-full rounded-tl-md rounded-tr-md" src="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1053&q=80" alt="avatar">
+                  
+                  <div class="py-4 bg-white rounded-bl-md rounded-br-md shadow-md">
+                     <div class="flex ml-5">
+                       <img class="rounded-full h-9 w-9 object-cover" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                       <div class="ml-3">
+                         <p class="text-base font-bold text-gray-800">Web & Mobile Design</p>
+                         <p class="text-sm text-gray-400 font-semibold">by paudmartins</p>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+              </li>
+               <!-- splide 7 -->
+               <li class="splide__slide">
+                <div class="w-auto">
+                  <img class="object-cover h-56 w-full rounded-tl-md rounded-tr-md" src="https://images.unsplash.com/photo-1605905892585-6debe9510d87?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=675&q=80" alt="avatar">
+                  
+                  <div class="py-4 bg-white rounded-bl-md rounded-br-md shadow-md">
+                     <div class="flex ml-5">
+                       <img class="rounded-full h-9 w-9 object-cover" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                       <div class="ml-3">
+                         <p class="text-base font-bold text-gray-800">Logo Design</p>
+                         <p class="text-sm text-gray-400 font-semibold">by niccoffman</p>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+              </li>
+               <!-- splide 8-->
+               <li class="splide__slide">
+                <div class="w-auto">
+                  <img class="object-cover h-56 w-full rounded-tl-md rounded-tr-md" src="https://images.unsplash.com/photo-1505330622279-bf7d7fc918f4?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80" alt="avatar">
+                  
+                  <div class="py-4 bg-white rounded-bl-md rounded-br-md shadow-md">
+                     <div class="flex ml-5">
+                       <img class="rounded-full h-9 w-9 object-cover" src="https://images.unsplash.com/photo-1542156822-6924d1a71ace?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60">
+                       <div class="ml-3">
+                         <p class="text-base font-bold text-gray-800">Brand Style Guides</p>
+                         <p class="text-sm text-gray-400 font-semibold">by digitalgeria</p>
+                       </div>
+                     </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-blue-500 text-base font-semibold md:hidden mt-4"><a href="#">See More Projects ></a></p>
+    </article>
+  </section>
+
+  <!-- Fiverr Guides -->
+  <section class="mt-20">
+    <div class="max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+      <div class="flex justify-between items-center">
+        <h4 class="text-2xl font-bold">Fiverr Guides</h4>
+        <p class="text-blue-600 text-base font-semibold hidden md:block"><a href="#">See More Guides ></a></p>
+      </div>
+      
+      <div class="flex space-x-20">
+
+        <div class="mt-7 grid grid-cols-1 md:grid-cols-3 gap-8 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+          <article>
+              <div class="w-auto">
+                <img class="object-cover w-full h-56 rounded-md" src="https://images.unsplash.com/photo-1591382696684-38c427c7547a?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8d29yayUyMGZyb20lMjBob21lfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
+                
+                <div class="py-4 bg-white rounded-bl-md rounded-br-md">
+                  <p class="text-base text-gray-700 font-bold tracking-tight">Start an online business and work from home</p>
+                  <p class="text-base text-gray-500 font-semibold">A complete guide to starting a small business</p>
+                </div>
+              </div>
+          </article>
+
+          <article>
+            <div class="w-auto">
+              <img class="object-cover w-full h-56 rounded-md" src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8ZGlnaXRhbCUyMG1hcmtldGluZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
+              
+              <div class="py-4 bg-white rounded-bl-md rounded-br-md">
+                <p class="text-base text-gray-700 font-bold tracking-tight">Digital marketing made easy</p>
+                <p class="text-base text-gray-500 font-semibold">A practical guide to understand what is  digital marketing</p>
+              </div>
+            </div>
+        </article>
+
+        <article>
+          <div class="w-auto">
+            <img class="object-cover w-full h-56 rounded-md" src="https://images.unsplash.com/photo-1580031818024-4a12b3477c95?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MTF8fGJ1c2luZXNzJTIwbG9nb3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" alt="avatar">
+            
+            <div class="py-4 bg-white rounded-bl-md rounded-br-md">
+              <p class="text-base text-gray-700 font-bold tracking-tight">Create a logo for your Business
+              <p class="text-base text-gray-500 font-semibold">A step-by-step guide to create a memorable business logo</p>
+            </div>
+          </div>
+        <p class="text-blue-500 text-base font-semibold md:hidden"><a href="#">See More Guides ></a></p>
+      </article>
+        </div>
+      
+      </div>
+
+  </section>
+
+  <!-- Find Talent -->
+  <section class="mt-20 bg-rose-900 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+    <article class="grid-cols-1 md:flex justify-between items-center py-10 md:py-20 rounded-md">
+      <div class="max-w-md md:max-w-xl ml-7 md:ml-14 leading-normal">
+        <p class="text-3xl md:text-5xl font-bold text-gray-200">Find the <span class="italic font-medium text-3xl md:text-4xl">talent</span> needed to</p>
+        <p class="text-3xl md:text-5xl font-bold text-gray-200">get your business <span class="italic font-medium text-3xl md:text-4xl">growing</span>.</p>
+        <button class="bg-green-500 hover:bg-green-600 text-white font-semibold px-5 py-2 mt-10 rounded-md">Get Started</button>
+      </div>
+
+      <div class="hidden md:block">
+        <img class="object-cover mr-10 h-64 rounded-md" src="https://images.unsplash.com/photo-1599843533756-8d3aac8ff16b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1100&q=80">
+      </div>
+    </article>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-20 border-t-2 border-gray-200 mb-6">
+    <div class="hidden md:grid grid-cols-5 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto mt-10">
+      <div>
+        <h1 class="text-base text-gray-700 font-bold">Categories</h1>
+        <ul class="mt-5 space-y-3">
+          <li class="text-base text-gray-500 font-semibold hover:underline">Graphics & Design</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Digital Marketing</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Writing & Translation</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Video & Animation</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Music & Audio</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Programming & Tech</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Business</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Lifestyle</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Sitemap</li>
+        </ul>
+      </div>
+      <div>
+        <h1 class="text-base text-gray-700 font-bold">About</h1>
+        <ul class="mt-5 space-y-3">
+          <li class="text-base text-gray-500 font-semibold hover:underline">Careers</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Press & News</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Partnerships</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Privacy Policy</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Terms of Service</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Intellectual Property Claims</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Investor Relations</li>
+        </ul>
+      </div>
+      <div>
+        <h1 class="text-base text-gray-700 font-bold">Support</h1>
+        <ul class="mt-5 space-y-3">
+          <li class="text-base text-gray-500 font-semibold hover:underline">Help & Support</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Trust & Safety</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Selling on Fiverr</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Buying on Fiverr</li>
+        </ul>
+      </div>
+      <div>
+        <h1 class="text-base text-gray-700 font-bold">Community</h1>
+        <ul class="mt-5 space-y-3">
+          <li class="text-base text-gray-500 font-semibold hover:underline">Events</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Blog</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Forum</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Community Standards</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Podcast</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Affiliates</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Invite a Friend</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Become a Seller</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Fiverr Elevate</li>
+        </ul>
+      </div>
+      <div>
+        <h1 class="text-base text-gray-700 font-bold">More on Fiverr</h1>
+        <ul class="mt-5 space-y-3">
+          <li class="text-base text-gray-500 font-semibold hover:underline">Fiverr Business</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Fiverr Pro</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Fiverr Studios</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Fiverr Logo Maker</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Fiverr Guides</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Get Inspired</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">ClearVoice</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">AND CO</li>
+          <li class="text-base text-gray-500 font-semibold hover:underline">Learn</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- footer mobile -->
+    <div class="md:hidden max-w-md mx-auto space-y-4 mt-5">
+      <!-- Categories -->
+      <div x-data="{isOpen: false}">
+        <button class="font-bold text-gray-600 focus:outline-none" @click="isOpen = !isOpen">Categories</button>
+        <ul class="mt-4 space-y-3 text-gray-500 font-semibold" x-show="isOpen">
+          <li class="hover:underline">Graphics & Design</li>
+          <li class="hover:underline">Digital Marketing</li>
+          <li class="hover:underline">Writing & Translation</li>
+          <li class="hover:underline">Video & Animation</li>
+          <li class="hover:underline">Music & Audio</li>
+          <li class="hover:underline">Programming & Tech</li>
+          <li class="hover:underline">Business</li>
+          <li class="hover:underline">Lifestyle</li>
+          <li class="hover:underline">Sitemap</li>
+        </ul>
+      </div>
+
+      <!-- About -->
+      <div x-data="{isOpen: false}">
+        <button class="font-bold text-gray-600 focus:outline-none" @click="isOpen = !isOpen">About</button>
+        <ul class="mt-4 space-y-3 text-gray-500 font-semibold" x-show="isOpen">
+          <li class="hover:underline">Careers</li>
+          <li class="hover:underline">Press & News</li>
+          <li class="hover:underline">Patnerships</li>
+          <li class="hover:underline">Privacy Policy</li>
+          <li class="hover:underline">Terms of Service</li>
+          <li class="hover:underline">Intellectual Property Claims</li>
+          <li class="hover:underline">Investor Relations</li>
+        </ul>
+      </div>
+
+      <!-- Support -->
+      <div x-data="{isOpen: false}">
+        <button class="font-bold text-gray-600 focus:outline-none" @click="isOpen = !isOpen">Support</button>
+        <ul class="mt-4 space-y-3 text-gray-500 font-semibold" x-show="isOpen">
+          <li class="hover:underline">Help & Support</li>
+          <li class="hover:underline">Trust & Safety</li>
+          <li class="hover:underline">Selling on Fiverr</li>
+          <li class="hover:underline">Buying on Fiverr</li>
+        </ul>
+      </div>
+
+      <!-- Community -->
+      <div x-data="{isOpen: false}">
+        <button class="font-bold text-gray-600 focus:outline-none" @click="isOpen = !isOpen">Community</button>
+        <ul class="mt-4 space-y-3 text-gray-500 font-semibold" x-show="isOpen">
+          <li class="hover:underline">Events</li>
+          <li class="hover:underline">Blog</li>
+          <li class="hover:underline">Forum</li>
+          <li class="hover:underline">Community Standards</li>
+          <li class="hover:underline">Podcast</li>
+          <li class="hover:underline">Affiliates</li>
+          <li class="hover:underline">Invite a Friend</li>
+          <li class="hover:underline">Become a Seller</li>
+          <li class="hover:underline">Fiverr Elevate</li>
+        </ul>
+      </div>
+
+      <!-- More from Fiverr -->
+      <div x-data="{isOpen: false}">
+        <button class="font-bold text-gray-600 focus:outline-none" @click="isOpen = !isOpen">More From Fiverr</button>
+        <ul class="mt-4 space-y-3 text-gray-500 font-semibold" x-show="isOpen">
+          <li class="hover:underline">Fiverr Business</li>
+          <li class="hover:underline">Fiverr Pro</li>
+          <li class="hover:underline">Fiverr Studios</li>
+          <li class="hover:underline">Fiverr Logo Maker</li>
+          <li class="hover:underline">Fiverr Guides</li>
+          <li class="hover:underline">Get Inspired</li>
+          <li class="hover:underline">ClearVoice</li>
+          <li class="hover:underline">AND CO</li>
+          <li class="hover:underline">Learn</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t-2 border-gray-200 mt-5 md:mt-20 max-w-md sm:max-w-xl md:max-w-4xl lg:max-w-4xl xl:max-w-6xl mx-auto">
+      <div class="md:flex justify-between items-center mt-5">
+        <div class="md:flex items-baseline space-x-6">
+          <p class="text-gray-500 text-center md:text-left text-3xl font-bold md:text-3xl">fiverr<span class="text-3xl text-gray-500">.</span></p>
+          <p class="font-semibold text-center md:text-left text-sm text-gray-500 mt-4 md:mt-0">Fiverr international Ltd. 2021</p>
+        </div>
+        
+        <div class="md:flex space-x-10">
+          <div>
+            <ul class="flex justify-center mt-4 md:mt-0 space-x-8 md:space-x-5">
+              <li>
+                <svg class="text-gray-400 fill-current h-5 w-5"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M17.316 6.246c.008.162.011.326.011.488 0 4.99-3.797 10.742-10.74 10.742-2.133 0-4.116-.625-5.787-1.697a7.577 7.577 0 005.588-1.562 3.779 3.779 0 01-3.526-2.621 3.858 3.858 0 001.705-.065 3.779 3.779 0 01-3.028-3.703v-.047a3.766 3.766 0 001.71.473 3.775 3.775 0 01-1.168-5.041 10.716 10.716 0 007.781 3.945 3.813 3.813 0 01-.097-.861 3.773 3.773 0 013.774-3.773 3.77 3.77 0 012.756 1.191 7.602 7.602 0 002.397-.916 3.789 3.789 0 01-1.66 2.088 7.55 7.55 0 002.168-.594 7.623 7.623 0 01-1.884 1.953z"/>
+                </svg>
+              </li>
+              <li>
+                <svg class="text-gray-400 fill-current h-5 w-5"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M17 1H3c-1.1 0-2 .9-2 2v14c0 1.101.9 2 2 2h7v-7H8V9.525h2v-2.05c0-2.164 1.212-3.684 3.766-3.684l1.803.002v2.605h-1.197c-.994 0-1.372.746-1.372 1.438v1.69h2.568L15 12h-2v7h4c1.1 0 2-.899 2-2V3c0-1.1-.9-2-2-2z"/>
+                </svg>
+              </li>
+              <li>
+                <svg class="text-gray-400 fill-current h-5 w-5"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M1 6h4v13H1V6zm2-5C1.8 1 1 2 1 3.1 1 4.1 1.8 5 3 5c1.3 0 2-.9 2-2s-.8-2-2-2zm11.6 5.2c-2.1 0-3.3 1.2-3.8 2h-.1l-.2-1.7H6.9c0 1.1.1 2.4.1 3.9V19h4v-7.1c0-.4 0-.7.1-1 .3-.7.8-1.6 1.9-1.6 1.4 0 2 1.2 2 2.8V19h4v-7.4c0-3.7-1.9-5.4-4.4-5.4z"/>
+                </svg>
+              </li>
+              <li>
+                <svg class="text-gray-400 fill-current h-5 w-5"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M8.617 13.227C8.091 15.981 7.45 18.621 5.549 20c-.586-4.162.861-7.287 1.534-10.605-1.147-1.93.138-5.812 2.555-4.855 2.975 1.176-2.576 7.172 1.15 7.922 3.891.781 5.479-6.75 3.066-9.199C10.369-.275 3.708 3.18 4.528 8.245c.199 1.238 1.478 1.613.511 3.322-2.231-.494-2.897-2.254-2.811-4.6.138-3.84 3.449-6.527 6.771-6.9 4.201-.471 8.144 1.543 8.689 5.494.613 4.461-1.896 9.293-6.389 8.945-1.218-.095-1.728-.699-2.682-1.279z"/>
+                </svg>
+              </li>
+              <li>
+                <svg class="text-gray-400 fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18">
+                  <path d="M17.946 5.29a6.606 6.606 0 00-.418-2.185 4.412 4.412 0 00-1.039-1.594A4.412 4.412 0 0014.895.472a6.606 6.606 0 00-2.184-.418C11.75.01 11.444 0 9 0S6.25.01 5.29.054a6.606 6.606 0 00-2.185.418A4.412 4.412 0 001.51 1.511 4.412 4.412 0 00.472 3.105a6.606 6.606 0 00-.418 2.184C.01 6.25 0 6.556 0 9s.01 2.75.054 3.71a6.606 6.606 0 00.418 2.185 4.412 4.412 0 001.039 1.594 4.411 4.411 0 001.594 1.039 6.606 6.606 0 002.184.418C6.25 17.99 6.556 18 9 18s2.75-.01 3.71-.054a6.606 6.606 0 002.185-.418 4.602 4.602 0 002.633-2.633 6.606 6.606 0 00.418-2.184C17.99 11.75 18 11.444 18 9s-.01-2.75-.054-3.71zm-1.62 7.347a4.978 4.978 0 01-.31 1.67 2.98 2.98 0 01-1.708 1.709 4.979 4.979 0 01-1.671.31c-.95.043-1.234.052-3.637.052s-2.688-.009-3.637-.052a4.979 4.979 0 01-1.67-.31 2.788 2.788 0 01-1.036-.673 2.788 2.788 0 01-.673-1.035 4.978 4.978 0 01-.31-1.671c-.043-.95-.052-1.234-.052-3.637s.009-2.688.052-3.637a4.979 4.979 0 01.31-1.67 2.788 2.788 0 01.673-1.036 2.788 2.788 0 011.035-.673 4.979 4.979 0 011.671-.31c.95-.043 1.234-.052 3.637-.052s2.688.009 3.637.052a4.979 4.979 0 011.67.31 2.788 2.788 0 011.036.673 2.788 2.788 0 01.673 1.035 4.979 4.979 0 01.31 1.671c.043.95.052 1.234.052 3.637s-.009 2.688-.052 3.637zM9 4.378A4.622 4.622 0 1013.622 9 4.622 4.622 0 009 4.378zM9 12a3 3 0 113-3 3 3 0 01-3 3zm5.884-7.804a1.08 1.08 0 11-1.08-1.08 1.08 1.08 0 011.08 1.08z"/>
+                </svg>
+              </li>
+            </ul>
+          </div>
+  
+          <div>
+            <ul class="flex justify-center mt-4 md:mt-0 space-x-4">
+              <li>
+                <div class="flex items-center">
+                  <svg class="text-gray-400 fill-current h-3 w-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M10 .4C4.705.4.399 4.707.399 10S4.705 19.6 10 19.6c5.293 0 9.6-4.307 9.6-9.6S15.293.4 10 .4zm8.188 9.6c0 1.873-.636 3.6-1.696 4.98-.3-.234-.619-.867-.319-1.523.303-.66.382-2.188.312-2.783-.066-.594-.375-2.025-1.214-2.039-.838-.012-1.413-.289-1.911-1.283-1.033-2.068 1.939-2.465.906-3.609-.289-.322-1.783 1.322-2.002-.869-.014-.157.135-.392.336-.636 3.244 1.09 5.588 4.157 5.588 7.762zM8.875 1.893c-.196.382-.713.537-1.027.824-.684.619-.978.533-1.346 1.127-.371.594-1.567 1.449-1.567 1.879s.604.936.906.838c.302-.1 1.099-.094 1.567.07.469.166 3.914.332 2.816 3.244-.348.926-1.873.77-2.279 2.303-.061.225-.272 1.186-.285 1.5-.025.486.344 2.318-.125 2.318-.471 0-1.738-1.639-1.738-1.936s-.328-1.338-.328-2.23c0-.891-1.518-.877-1.518-2.062 0-1.068.823-1.6.638-2.113-.181-.51-1.627-.527-2.23-.59a8.213 8.213 0 016.516-5.172zM7.424 17.77c.492-.26.542-.596.988-.613.51-.023.925-.199 1.5-.326.51-.111 1.423-.629 2.226-.695.678-.055 2.015.035 2.375.689a8.159 8.159 0 01-7.089.945z"/>
+                  </svg>
+                  <p class="text-gray-400 font-semibold text-base ml-1">English</p>
+                </div>
+              </li>
+              <li>
+                <p class="text-gray-400 font-semibold text-base">$USD</p>
+              </li>
+              <li>
+                <svg class="text-gray-400 fill-current h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path d="M13 7.08a2.5 2.5 0 100-5 2.5 2.5 0 000 5zm5.845-1.137C15.265 8.498 13.616 8.051 12 8c-1.118-.057-1.5.298-1.5 1.08l.001 6c0 5 8.421 3.43 5.165-4.949 1.671-.959 3.076-2.434 3.876-3.412.411-.608-.028-1.245-.697-.776zM7 2.08a2.5 2.5 0 100 5 2.5 2.5 0 000-5zM8 8c-1.616.051-3.265.498-6.845-2.057-.669-.469-1.108.168-.697.775.8.979 2.205 2.453 3.876 3.412-3.256 8.379 5.165 9.949 5.165 4.949l.001-6C9.5 8.298 9.118 7.943 8 8z"/>
+                </svg>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer>
+    document.addEventListener( 'DOMContentLoaded', function () {
+        var options = {
+            autoplay: true,
+            type: 'loop',
+            perPage: 5,
+            speed: 1000,
+            breakpoints: {
+              640: {
+                perPage: 1,
+              },
+            },
+            gap: 36,
+            interval: 6000,
+            easing: 'cubic-bezier(.42,.65,.27,.99)',
+        };
+
+        let elements = document.getElementsByClassName('splide');
+
+        for (let i = 0; i <= elements.length; i++) {
+          if(i === 1) {
+            options.perPage = 1;
+          }
+          if(i === 2) {
+            options.perPage = 4;
+          }
+
+          new Splide(elements[i] , options ).mount();
+        }
+        
+    } );
+</script>
+</body>
+</html>
