@@ -10,7 +10,7 @@ I built it using Tailwind CSS and JavaScript Libraries.
 Download the zip folder or clone the repo to your local computer using the following git command in your terminal
 
 ```bash
-git clone http://Symiel/github.io/Fiver-Clone
+git clone https://github.com/Siymiel/Fiverr-Clone.git
 ```
 
 ## Responsivity
